@@ -9,7 +9,7 @@ import duckdb as db
 from utilities.dataConvert import sav_to_parquet
 
 # Convert the files to parquet.
-dir = "~/Desktop/pew-npors"
+dir = "/Users/dcr/Desktop/pew-npors"
 sav_to_parquet(dir=dir)
 
 # Place in a OLAP DB.
@@ -177,7 +177,7 @@ con.execute(
     INSERT INTO dim_survey (
         resp_id, year, mode
         , language_pref, interview_start, interview_end
-        , device_type, stratum, census_region, metro, division    
+        , device_type, stratum, census_region, metro, division
     )
     SELECT
         RESPID, 2023 AS year, MODE_2WAY, LANG_PREF, INTERVIEW_START, INTERVIEW_END
@@ -186,7 +186,7 @@ con.execute(
     INSERT INTO dim_survey (
         resp_id, year, mode
         , language, language_pref, interview_start, interview_end
-        , wave, stratum, census_region, metro, division 
+        , wave, stratum, census_region, metro, division
     )
     SELECT
         RESPID, 2024 AS year, MODE, LANGUAGE, LANG_PREF, SURVEYSTARTDATE, SURVEYENDDATE
@@ -217,7 +217,7 @@ con.execute(
 )
 
 # Delete the temp and original data.
-subprocess.call(shlex.split(f"bash ./data_cleanup.sh {dir}"), shell=True)
+subprocess.call(shlex.split(f"./data_cleanup.sh {dir}"))
 
 # Close connection.
 con.close()
