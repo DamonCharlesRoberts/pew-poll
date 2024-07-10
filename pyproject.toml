@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pew-poll"
+version = "0.1.0"
+description = "Playing around with the PEW NROP."
+authors = ["DamonCharlesRoberts <damon.charles.roberts@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+duckdb = "^1.0.0"
+pandas = "^2.2.2"
+pyarrow = "^16.1.0"
+pyreadstat = "^1.2.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
